@@ -45,10 +45,10 @@ export const cooldownLeft = () => {
 }
 export const markSubmitted = () => { try { localStorage.setItem(KEY, String(Date.now())) } catch { /* storage unavailable */ } }
 
-// Endpoint must be configured, https, and a parseable URL (blocks javascript:/http: values).
+// Vite exposes VITE_* values through import.meta.env; require a real HTTPS endpoint.
 export function getEndpoint() {
-  const raw = (import.meta.env.VITE_FORM_ENDPOINT || '').trim()
-  if (!raw || raw.includes('your_form_id')) return null
-  try { const u = new URL(raw); return u.protocol === 'https:' ? u.href : null } catch { return null }
+  const raw = String(import.meta.env.VITE_FORM_ENDPOINT ?? '').trim()
+  if (!raw || /your[_-]?form[_-]?id/i.test(raw)) return null
+  try { const endpoint = new URL(raw); return endpoint.protocol === 'https:' ? endpoint.href : null } catch { return null }
 }
 export const testMode = () => import.meta.env.DEV && import.meta.env.VITE_FORM_TEST_MODE === 'true'

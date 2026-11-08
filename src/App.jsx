@@ -13,7 +13,7 @@ import Footer from './components/Footer'
 export default function App() {
   return (
     <>
-      <a href="#about" className="sr-only focus:not-sr-only focus:fixed focus:left-3 focus:top-3 focus:z-50 focus:rounded-lg focus:bg-emerald-600 focus:px-4 focus:py-2">Skip to content</a>
+      <a href="#about" className="sr-only focus:not-sr-only focus:fixed focus:left-3 focus:top-3 focus:z-50 focus:rounded-lg focus:bg-electric focus:px-4 focus:py-2 focus:text-white">Skip to content</a>
       <Navbar />
       <main>
         <Hero /><About /><Framework /><Events /><Timeline /><Testimonials /><Team /><Gallery /><Contact />
