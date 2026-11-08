@@ -1,14 +1,44 @@
-    colors: {
-      plum: { 
-        950: '#0b132b', // Deep sleek dark blue for headers/backgrounds
-        900: '#1c2541', // Modern navy dark
-        800: '#3a506b', // Deep slate blue
-        700: '#0066ff'  // Bright vibrant electric blue
+export default {
+  content: ['./index.html', './src/**/*.{js,jsx}'],
+  theme: {
+    extend: {
+      colors: {
+        // Primary palette: crisp surfaces, deep slate typography, electric blue and cyan accents.
+        electric: '#0066ff',
+        cyan: '#00f2fe',
+        surface: '#f8fafc',
+        slate: { 
+          '950': '#0f172a', 
+          '900': '#0f172a', 
+          '800': '#1e293b', 
+          '700': '#334155' 
+        },
+        // Keep existing component color tokens mapped to the new palette while components migrate.
+        plum: { 
+          '950': '#f8fafc', 
+          '900': '#f1f5f9', 
+          '800': '#ffffff', 
+          '700': '#e2e8f0' 
+        },
+        blush: { 
+          DEFAULT: '#cffafe', 
+          deep: '#a5f3fc' 
+        },
+        cream: '#0f172a',
+        ink: '#0f172a',
+        emerald: { 
+          '900': '#0047b3', 
+          '700': '#0052cc', 
+          '600': '#0066ff', 
+          '500': '#0066ff', 
+          '400': '#00b8d4' 
+        },
       },
-      blush: { 
-        DEFAULT: '#00f2fe', // Vibrant neon cyan accent
-        deep: '#00c6ff'    // Rich cyan accent
+      fontFamily: { 
+        display: ['"Playfair Display"', 'Georgia', 'serif'], 
+        sans: ['"DM Sans"', 'system-ui', 'sans-serif'] 
       },
-      cream: '#f8fafc', // Crisp clean light background
-      ink: '#0f172a',   // Deep slate text for contrast
     },
+  },
+  plugins: [],
+}
