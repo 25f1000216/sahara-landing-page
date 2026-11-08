@@ -45,9 +45,9 @@ export const cooldownLeft = () => {
 }
 export const markSubmitted = () => { try { localStorage.setItem(KEY, String(Date.now())) } catch { /* storage unavailable */ } }
 
-// Vite exposes VITE_* values through import.meta.env; require a real HTTPS endpoint.
+// The Formspree endpoint is public by design. Vercel/local env config can override this fallback.
 export function getEndpoint() {
-  const raw = String(import.meta.env.VITE_FORM_ENDPOINT ?? '').trim()
+  const raw = String(import.meta.env.VITE_FORM_ENDPOINT || 'https://formspree.io/f/mbggevja').trim()
   if (!raw || /your[_-]?form[_-]?id/i.test(raw)) return null
   try { const endpoint = new URL(raw); return endpoint.protocol === 'https:' ? endpoint.href : null } catch { return null }
 }
