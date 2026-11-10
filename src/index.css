@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Use a high-contrast navy for blush-accented text on the refreshed light surfaces. */
+.text-blush {
+  color: #0f172a;
+}
+
 html {
   scroll-behavior: smooth;
 }
