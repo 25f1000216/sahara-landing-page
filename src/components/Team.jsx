@@ -3,7 +3,7 @@ import { teamGroups } from '../data/team'
 import { Reveal } from './ui'
 
 const initials = (name) => name.split(/\s+/).filter(Boolean).slice(0, 2).map((w) => w[0].toUpperCase()).join('')
-const SAFE_EMAIL = /^[^\s@<>"]+@[^\s@<>"]+\.[^\s@<>"]+$/
+const SAFE_EMAIL = /^[^\s@<>\"]+@[^\s@<>\"]+\.[^\s@<>\"]+$/
 
 function Card({ m, tone }) {
   return (
@@ -12,7 +12,7 @@ function Card({ m, tone }) {
         ? <img src={m.photo} alt={`Portrait of ${m.name}`} loading="lazy" decoding="async" width="96" height="96" className="h-24 w-24 rounded-full object-cover ring-4 ring-emerald-500/60" />
         : <div aria-hidden="true" className={`grid h-24 w-24 place-items-center rounded-full font-display text-3xl font-black ring-4 ring-emerald-500/60 ${tone}`}>{initials(m.name)}</div>}
       <h4 className="mt-4 font-display text-xl font-bold">{m.name}</h4>
-      <p className="mt-1 text-sm font-bold text-emerald-400">{m.role}</p>
+      <p className="mt-1 text-sm font-bold text-emerald-600">{m.role}</p>
       <p className="mt-3 flex-1 text-sm leading-relaxed text-cream/85">{m.bio ? `“${m.bio}”` : ""}</p>
       {SAFE_EMAIL.test(m.email) && (
         <a href={`mailto:${m.email}`} aria-label={`Email ${m.name}`} className="mt-5 grid h-11 w-11 place-items-center rounded-full bg-emerald-600 transition hover:scale-110 hover:bg-emerald-700"><Mail size={18} /></a>
