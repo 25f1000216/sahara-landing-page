@@ -96,3 +96,35 @@ section[id] {
     padding-bottom: 7rem;
   }
 }
+
+/* --- OVERRIDE RULES ADDED BELOW --- */
+
+/* Force all alternating sections and dark backgrounds to match the light theme */
+section,
+[class*="bg-black"],
+[class*="bg-slate-"],
+[class*="bg-gray-"],
+[class*="bg-zinc-"],
+[class*="bg-neutral-"] {
+  background-color: #f8fafc !important;
+  background-image: none !important;
+  color: #0f172a !important;
+}
+
+/* Ensure all text inside those sections stays dark navy and readable */
+section p,
+section h1,
+section h2,
+section h3,
+section span,
+section div {
+  color: #0f172a !important;
+}
+
+/* Protect your existing .btn class so buttons stay blue with white text */
+.btn,
+.btn span,
+button[class*="bg-"] {
+  background-color: #0066ff !important;
+  color: #ffffff !important;
+}
